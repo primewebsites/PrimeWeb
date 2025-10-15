@@ -38,27 +38,16 @@ window.addEventListener("load", () => {
 });
 
 // =============================
-// Portfólio + cores dinâmicas
+// Portfólio - cor dinâmica
 // =============================
 const portfolioItems = document.querySelectorAll(".portfolio-item");
 const portfolioSection = document.querySelector(".portfolio-section");
-const faqSection = document.getElementById("faq");
-const faqTitle = faqSection.querySelector(".section-title");
 
 // Defina as cores desejadas
 const heroBgColor = "#0D1B2A";
 const heroTextColor = "#FFFFFF";
 const portfolioBgColor = "#F5F5F7";
 const portfolioTextColor = "#1E1E1E";
-const faqInitialBgColor = "#F5F5F7"; // FAQ começa clara
-const faqInitialTextColor = "#1E1E1E"; // FAQ inicial: texto escuro
-const faqFinalBgColor = "#0D1B2A"; // FAQ fundo hero ao rolar
-const faqFinalTextColor = "#FFFFFF"; // FAQ texto branco ao rolar
-
-// Inicializa FAQ com fundo e cores iniciais
-faqSection.style.backgroundColor = faqInitialBgColor;
-faqTitle.style.color = faqInitialTextColor;
-faqSection.querySelectorAll(".faq-question, .faq-answer p").forEach(el => el.style.color = faqInitialTextColor);
 
 function handleScroll() {
   const scrollY = window.scrollY;
@@ -74,37 +63,30 @@ function handleScroll() {
   });
 
   // =============================
-  // Lógica de cores unificada
+  // Lógica de cores apenas para o Portfólio
   // =============================
   if (windowMid < portfolioSection.offsetTop) {
-    // Hero ativo
+    // Antes do portfólio (hero ativo)
     portfolioSection.style.backgroundColor = heroBgColor;
     portfolioSection.style.color = heroTextColor;
-    portfolioItems.forEach(item => item.querySelectorAll("h3, p").forEach(el => el.style.color = heroTextColor));
-
-    faqSection.style.backgroundColor = faqInitialBgColor;
-    faqTitle.style.color = faqInitialTextColor;
-    faqSection.querySelectorAll(".faq-question, .faq-answer p").forEach(el => el.style.color = faqInitialTextColor);
-
-  } else if (windowMid >= portfolioSection.offsetTop && windowMid < faqSection.offsetTop) {
-    // Portfólio ativo
+    portfolioItems.forEach(item =>
+      item.querySelectorAll("h3, p").forEach(el => el.style.color = heroTextColor)
+    );
+  } else if (windowMid >= portfolioSection.offsetTop &&
+             windowMid < portfolioSection.offsetTop + portfolioSection.offsetHeight) {
+    // Dentro do portfólio
     portfolioSection.style.backgroundColor = portfolioBgColor;
     portfolioSection.style.color = portfolioTextColor;
-    portfolioItems.forEach(item => item.querySelectorAll("h3, p").forEach(el => el.style.color = portfolioTextColor));
-
-    faqSection.style.backgroundColor = faqInitialBgColor;
-    faqTitle.style.color = faqInitialTextColor;
-    faqSection.querySelectorAll(".faq-question, .faq-answer p").forEach(el => el.style.color = faqInitialTextColor);
-
-  } else if (windowMid >= faqSection.offsetTop) {
-    // FAQ ativo
+    portfolioItems.forEach(item =>
+      item.querySelectorAll("h3, p").forEach(el => el.style.color = portfolioTextColor)
+    );
+  } else {
+    // Depois do portfólio (volta para o hero)
     portfolioSection.style.backgroundColor = heroBgColor;
     portfolioSection.style.color = heroTextColor;
-    portfolioItems.forEach(item => item.querySelectorAll("h3, p").forEach(el => el.style.color = heroTextColor));
-
-    faqSection.style.backgroundColor = faqFinalBgColor;
-    faqTitle.style.color = faqFinalTextColor;
-    faqSection.querySelectorAll(".faq-question, .faq-answer p").forEach(el => el.style.color = faqFinalTextColor);
+    portfolioItems.forEach(item =>
+      item.querySelectorAll("h3, p").forEach(el => el.style.color = heroTextColor)
+    );
   }
 }
 
@@ -140,18 +122,52 @@ faqItems.forEach(item => {
     }
   });
 });
-const whyCards = document.querySelectorAll(".why-prime-card");
-const whySection = document.getElementById("why-prime");
 
+// =============================
+// Por que a Prime? - Carrossel 3 visíveis
+// =============================
+const carousel = document.querySelector(".why-carousel");
+const leftArrow = document.querySelector(".arrow.left");
+const rightArrow = document.querySelector(".arrow.right");
+const whyCards = document.querySelectorAll(".why-prime-card");
+
+// Largura de cada card + gap (ajuste se necessário)
+const cardWidth = whyCards[0].offsetWidth + 30;
+
+// Função para scrollar uma card por vez
+rightArrow.addEventListener("click", () => {
+  carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+});
+
+leftArrow.addEventListener("click", () => {
+  carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+});
+
+// Fade-in sequencial dos cards visíveis
 function handleWhyScroll() {
   const triggerBottom = window.innerHeight * 0.85;
   whyCards.forEach((card, index) => {
     const cardTop = card.getBoundingClientRect().top;
-    if (cardTop < triggerBottom && !card.classList.contains("show")) {
-      setTimeout(() => card.classList.add("show"), index * 200);
+    if (!card.classList.contains("show")) {
+      if (cardTop < triggerBottom) {
+        setTimeout(() => card.classList.add("show"), index * 150);
+      }
     }
   });
 }
 
 window.addEventListener("scroll", () => requestAnimationFrame(handleWhyScroll));
 handleWhyScroll();
+
+// Forçar os 3 primeiros cards a aparecer imediatamente
+whyCards.forEach((card, index) => {
+  if (index < 3) {
+    card.classList.add("show");
+  }
+});
+
+
+document.querySelector('.back-to-top').addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
