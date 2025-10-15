@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeWeb</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tela de carregamento -->
+  <div id="loading-screen">
+    <h1 id="loading-text">PrimeWeb</h1>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">PrimeWeb</div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-wrapper">
+      <div class="hero-graphic">
+        <!-- SVG de animação -->
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+          <!-- Círculos -->
+          <circle class="circle" cx="50" cy="50" r="8" fill="#9B5DE5"/>
+          <circle class="circle" cx="150" cy="100" r="6" fill="white"/>
+          <circle class="circle" cx="100" cy="200" r="10" fill="#9B5DE5"/>
+          <circle class="circle" cx="250" cy="150" r="7" fill="white"/>
+          <circle class="circle" cx="300" cy="300" r="12" fill="#9B5DE5"/>
+          <!-- Linhas conectando círculos -->
+          <line x1="50" y1="50" x2="150" y2="100" stroke="#9B5DE5" stroke-width="2"/>
+          <line x1="150" y1="100" x2="100" y2="200" stroke="white" stroke-width="1.5"/>
+          <line x1="100" y1="200" x2="250" y2="150" stroke="#9B5DE5" stroke-width="2"/>
+          <line x1="250" y1="150" x2="300" y2="300" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <h1>Transformamos ideias em <span>experiências digitais incríveis</span>.</h1>
+        <p>Criação de sites, landing pages e sistemas personalizados para o seu negócio.</p>
+        <p>Desenvolvemos soluções digitais em colaboração direta com sua equipe, assegurando valor real aos usuários e alinhamento com os objetivos estratégicos do seu negócio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosso Trabalho / Portfólio -->
+  <main>
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Nosso trabalho</h2>
+        <p class="section-subtitle">Projetos selecionados</p>
+
+        <!-- Projetos -->
+        <article class="portfolio-item">
+          <div class="portfolio-img">
+            <img src="projeto1.jpg" alt="Projeto 1">
+          </div>
+          <div class="portfolio-info">
+            <h3>Projeto 1</h3>
+            <p>Descrição curta do projeto 1.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-item reverse">
+          <div class="portfolio-img">
+            <img src="projeto2.jpg" alt="Projeto 2">
+          </div>
+          <div class="portfolio-info">
+            <h3>Projeto 2</h3>
+            <p>Descrição curta do projeto 2.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-item">
+          <div class="portfolio-img">
+            <img src="projeto3.jpg" alt="Projeto 3">
+          </div>
+          <div class="portfolio-info">
+            <h3>Projeto 3</h3>
+            <p>Descrição curta do projeto 3.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-item reverse">
+          <div class="portfolio-img">
+            <img src="projeto4.jpg" alt="Projeto 4">
+          </div>
+          <div class="portfolio-info">
+            <h3>Projeto 4</h3>
+            <p>Descrição curta do projeto 4.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================
+     Seção FAQ
+============================ -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Perguntas Frequentes</h2>
+
+    <article class="faq-item">
+      <button class="faq-question">1. Quanto tempo leva para desenvolver um site?</button>
+      <div class="faq-answer">
+        <p>O tempo de desenvolvimento depende da complexidade do projeto, mas geralmente varia entre 2 a 6 semanas.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question">2. Vocês oferecem manutenção após a entrega?</button>
+      <div class="faq-answer">
+        <p>Sim, oferecemos planos de manutenção e suporte contínuo para garantir que seu site permaneça atualizado e seguro.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question">3. O site será responsivo (funciona em celular e tablet)?</button>
+      <div class="faq-answer">
+        <p>Sim, todos os sites que desenvolvemos são responsivos e adaptáveis a qualquer dispositivo.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-question">4. Posso solicitar alterações depois que o site estiver pronto?</button>
+      <div class="faq-answer">
+        <p>Sim, você poderá solicitar ajustes e melhorias mesmo após a entrega, conforme nossos planos de suporte.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
