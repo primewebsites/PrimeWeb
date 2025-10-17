@@ -313,8 +313,8 @@ body {
   background: #0D1B2A;
 }
 
-.arrow.left { left: -10px; }
-.arrow.right { right: -10px; }
+.arrow.left { left: -50px; }
+.arrow.right { right: -50px; }
 
 /* ============================
    CTA
