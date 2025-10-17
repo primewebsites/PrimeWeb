@@ -171,3 +171,10 @@ document.querySelector('.back-to-top').addEventListener('click', (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+document.querySelectorAll('.portfolio-img img').forEach(img => {
+  if (img.complete) {
+    img.classList.add('loaded'); // caso já esteja carregada do cache
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+  }
+});
