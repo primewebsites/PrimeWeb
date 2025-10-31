@@ -171,3 +171,11 @@ faqQuestions.forEach(q => {
     }
   });
 });
+
+  const burger = document.getElementById('menu-burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
