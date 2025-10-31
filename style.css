@@ -1,0 +1,700 @@
+/* ======== IMPORTAÇÃO DE FONTE ======== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ======== VARIÁVEIS ======== */
+:root {
+  --cor-fundo: #ffffff;
+  --cor-texto-nav: #444444;
+  --cor-hover: #7b2cbf;
+  --cor-linha-hover: #7b2cbf;
+  --cor-botao: #7b2cbf;
+  --cor-botao-hover: #5e1f91;
+  --fonte-principal: 'Montserrat', sans-serif;
+}
+
+/* ======== RESET ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonte-principal);
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-nav);
+  line-height: 1.6;
+}
+
+/* ======== NAVBAR ======== */
+nav,
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: var(--cor-fundo);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+.nome-empresa {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+.nome-empresa:hover {
+  color: var(--cor-hover);
+}
+
+/* Nav Links */
+nav ul,
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav ul li,
+.nav-links li {
+  position: relative;
+}
+
+nav ul li a,
+.nav-links li a {
+  text-decoration: none;
+  color: var(--cor-texto-nav);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav ul li a::after,
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--cor-linha-hover);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover,
+.nav-links li a:hover {
+  color: var(--cor-hover);
+}
+
+nav ul li a:hover::after,
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Telefone */
+nav .telefone a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--cor-hover);
+  border: 2px solid var(--cor-hover);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav .telefone a:hover {
+  background-color: var(--cor-hover);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ======== HERO ======== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 50px;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.hero-left,
+.hero-right {
+  width: 20%;
+}
+
+.hero-left img,
+.hero-right img {
+  width: 100%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero-content {
+  width: 55%;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--cor-botao);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--cor-botao-hover);
+  transform: scale(1.05);
+}
+
+/* ======== COMO TRABALHAMOS ======== */
+.como-trabalhamos {
+  padding: 80px 50px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.como-trabalhamos .subtitulo {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #7b2cbf;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.como-trabalhamos h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.topicos {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.topico {
+  background: linear-gradient(145deg, #fff, #f9f9f9);
+  padding: 30px 20px;
+  border-radius: 12px;
+  border-top: 5px solid #7b2cbf;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  flex: 1 1 30%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+}
+
+.topico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-top-color: var(--cor-hover);
+}
+
+.topico h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #7b2cbf;
+  transition: color 0.3s ease;
+}
+
+.topico:hover h3 {
+  color: var(--cor-hover);
+}
+
+.topico p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ======== ANIMAÇÃO ======== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 40%;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  nav ul,
+  .nav-links {
+    gap: 20px;
+  }
+
+  nav,
+  .navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul,
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav .telefone,
+  .telefone {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .hero-left,
+  .hero-right {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .nome-empresa {
+    font-size: 1rem;
+  }
+
+  .topicos {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .topico {
+    flex: 1 1 100%;
+  }
+}
+
+/* ======== NOSSOS PROJETOS – SLIDER HORIZONTAL ======== */
+.nossos-projetos {
+  background-color: #4b2c91; /* fundo roxo escuro */
+  color: #ffffff;
+  padding: 80px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nossos-projetos .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* referência para setas absolutas */
+}
+
+.nossos-projetos p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #e0d6f5;
+}
+
+.nossos-projetos h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+/* Wrapper do slider */
+.projetos-slider-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slider flexível */
+.projetos-slider {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
+  scroll-behavior: smooth;
+}
+
+/* Card do projeto */
+.card-projeto {
+  flex: 0 0 calc((100% - 60px)/3); /* 3 cards visíveis com gap de 30px */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto img {
+  width: 100%;
+  height: auto; /* ajusta a altura proporcional à largura */
+  max-height: 250px; /* opcional, limita altura máxima */
+  object-fit: contain; /* mantém a imagem inteira sem cortar */
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  background-color: #fff; /* opcional: cor de fundo se houver espaço */
+}
+
+.card-projeto:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(123,44,191,0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-projeto:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* ===== Setas independentes ===== */
+.seta {
+  position: absolute;
+  top: 70%; /* um pouco mais para baixo */
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: -10px;
+}
+
+
+.seta.esquerda {
+  left: -40px; /* afastada da imagem */
+}
+
+.seta.direita {
+  right: -40px; /* afastada da imagem */
+}
+
+.seta:hover {
+  background: rgba(0,0,0,0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .card-projeto {
+    flex: 0 0 calc((100% - 30px)/2); /* 2 cards visíveis */
+  }
+
+  .card-projeto img {
+    height: 220px;
+  }
+
+  .overlay h3 {
+    font-size: 1.4rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-projeto {
+    flex: 0 0 100%; /* 1 card visível */
+  }
+
+  .card-projeto img {
+    height: 200px;
+  }
+
+  .overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .overlay p {
+    font-size: 0.95rem;
+  }
+
+  .seta.esquerda {
+    left: -20px;
+  }
+
+  .seta.direita {
+    right: -20px;
+  }
+}
+
+
+
+/* ======== Seção Vantagens PrimeWeb ======== */
+.vantagens-primeweb {
+  background-color: #ffffff;
+  padding: 80px 50px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.vantagens-primeweb .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #4b2c91; /* roxo principal */
+}
+
+.vantagens-primeweb .section-subtitle {
+  font-size: 1.2rem;
+  color: #7b2cbf; /* roxo secundário */
+  margin-bottom: 50px;
+}
+
+/* Grid de vantagens */
+.grid-vantagens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card individual */
+.card-vantagem {
+  background: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card-vantagem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* Ícones */
+.card-vantagem img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+/* Título do card */
+.card-vantagem h3 {
+  font-size: 1.5rem;
+  color: #4b2c91; /* roxo */
+  margin-bottom: 10px;
+}
+
+/* Descrição do card */
+.card-vantagem p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid-vantagens {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards por linha em tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-vantagens {
+    grid-template-columns: 1fr; /* 1 card por linha em mobile */
+  }
+
+  .vantagens-primeweb {
+    padding: 60px 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ======== FAQ – Perguntas Frequentes ======== */
+.faq-section {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 80px 50px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #4b2c91; /* roxo escuro */
+}
+
+.faq-section p {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #555555;
+}
+
+.faq-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.faq-column {
+  flex: 1 1 400px; /* cada coluna ocupa metade do espaço em telas grandes */
+  max-width: 500px;
+}
+
+.faq-item {
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 20px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.faq-question::after {
+  content: '\25BC'; /* seta para baixo */
+  position: absolute;
+  right: 25px;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  transform: rotate(180deg); /* seta vira para cima */
+}
+
+.faq-question:hover {
+  background-color: #f0f0f0;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 0 0px;
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.faq-answer.show {
+  max-height: 500px; /* ajustável conforme o tamanho do conteúdo */
+  padding: 15px 25px 20px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .faq-grid {
+    gap: 30px;
+  }
+  .faq-column {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .faq-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
