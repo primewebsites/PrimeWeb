@@ -171,3 +171,71 @@ faqQuestions.forEach(q => {
     }
   });
 });
+// MOBILE MENU: abre / fecha + acessibilidade
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileInner = document.querySelector('.mobile-menu-inner');
+  const mobileBackdrop = document.querySelector('.mobile-backdrop');
+  const mobileClose = document.querySelector('.mobile-menu-close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+  if (!mobileBtn || !mobileMenu) return;
+
+  function openMenu() {
+    mobileMenu.classList.add('show');
+    mobileBtn.classList.add('open');
+    mobileBtn.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    // trava scroll do body
+    document.body.style.overflow = 'hidden';
+    // move foco para primeiro link
+    const firstLink = mobileMenu.querySelector('.mobile-nav-links a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('show');
+    mobileBtn.classList.remove('open');
+    mobileBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    mobileBtn.focus();
+  }
+
+  mobileBtn.addEventListener('click', (e) => {
+    const expanded = mobileBtn.classList.contains('open');
+    if (expanded) closeMenu();
+    else openMenu();
+  });
+
+  mobileClose.addEventListener('click', closeMenu);
+
+  mobileBackdrop.addEventListener('click', closeMenu);
+
+  // fechar ao clicar em um link
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // ESC fecha
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+      closeMenu();
+    }
+  });
+
+  // prevenir foco fora do modal (simples trap)
+  mobileMenu.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = mobileMenu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+});

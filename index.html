@@ -5,25 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PrimeWeb</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/6d33f9c8c1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="img/logo.png" alt="Logo PrimeWeb"> 
-      <span class="nome-empresa">PrimeWeb</span>
+  <!-- NAVBAR (desktop + mobile) -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo PrimeWeb" />
+    <span class="nome-empresa">PrimeWeb</span>
+  </div>
+
+  <!-- links normais (desktop) -->
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#portifolio">Portfólio</a></li>
+    <li><a href="#orcamento">Orçamento</a></li>
+  </ul>
+
+  <div class="telefone">
+    <a href="tel:+5511999999999">+55 11 99999-9999</a>
+  </div>
+
+  <!-- BOTÃO HAMBURGER (mobile) -->
+  <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span class="hamburger">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+</nav>
+
+<!-- MENU MOBILE (full screen) -->
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+    <button class="mobile-menu-close" aria-label="Fechar menu">&times;</button>
+
+    <div class="mobile-menu-header">
+      <img src="img/logo.png" alt="Logo PrimeWeb" />
+      <h2 id="mobile-menu-title">Menu</h2>
     </div>
-    <ul class="nav-links">
+
+    <ul class="mobile-nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#portifolio">Portfólio</a></li>
       <li><a href="#orcamento">Orçamento</a></li>
     </ul>
-    <div class="telefone">
-      <a href="tel:+5511999999999">+55 11 99999-9999</a>
+
+    <div class="mobile-menu-cta">
+      <a class="btn btn-whatsapp" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">💬 Orçamento (WhatsApp)</a>
+      <a class="telefone" href="tel:+5511999999999">📞 +55 11 99999-9999</a>
     </div>
-  </nav>
+  </div>
+
+  <!-- backdrop para fechar ao clicar fora -->
+  <div class="mobile-backdrop" tabindex="-1"></div>
+</div>
+
+<!-- BOTTOM NAV (opcional) -->
+<nav class="mobile-bottom-nav" aria-hidden="false">
+  <a href="#home" class="mbn-item" aria-label="Home">
+    <!-- ícone simples inline -->
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </a>
+
+  <a href="#servicos" class="mbn-item" aria-label="Serviços">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Serviços</span>
+  </a>
+
+  <a href="#portifolio" class="mbn-item" aria-label="Portfólio">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.2"/></svg>
+    <span>Portfólio</span>
+  </a>
+
+  <a href="#orcamento" class="mbn-item" aria-label="Orçamento">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 1v22M5 7h14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <span>Orçamento</span>
+  </a>
+</nav>
+
 
   <!-- Hero -->
   <section class="hero" id="home">
@@ -246,6 +310,68 @@
     </div>
   </div>
 </section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Sobre a PrimeWeb -->
+    <div class="footer-sobre">
+      <img src="img/logo.png" alt="Logo PrimeWeb" class="footer-logo">
+      <h3>Sobre a PrimeWeb</h3>
+      <p>
+        A PrimeWeb é uma agência de criação de sites e sistemas 
+        personalizados, especializada em desenvolvimento e gestão 
+        de projetos digitais que impulsionam empresas com tecnologia, 
+        performance e design moderno.
+      </p>
+    </div>
+
+    <!-- Contato -->
+    <div class="footer-contato">
+      <h3>Contato</h3>
+      <ul>
+        <li>
+          <a href="mailto:contato@primeweb.com.br">
+            <i class="fa-solid fa-envelope"></i> contato@primeweb.com.br
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/5511999999999" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> +55 11 99999-9999
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Redes sociais -->
+    <div class="footer-redes">
+      <h3>Siga-nos</h3>
+      <div class="social-icons">
+        <a href="https://instagram.com/primeweb" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:contato@primeweb.com.br" aria-label="E-mail">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Direitos autorais -->
+  <div class="footer-direitos">
+    <p>© 2025 PrimeWeb. Todos os direitos reservados.</p>
+  </div>
+
+  <!-- Mascote interativo (Fale Conosco) -->
+  <a href="https://wa.me/5511999999999" class="footer-mascote" target="_blank" aria-label="Fale Conosco no WhatsApp">
+    <img src="img/fale-conosco.png" alt="Mascote PrimeWeb Fale Conosco">
+  </a>
+</footer>
 
 
 
