@@ -171,3 +171,28 @@ faqQuestions.forEach(q => {
     }
   });
 });
+// ======== MENU BURGUER ========
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+
+    const icon = menuToggle.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-xmark"); // muda para X
+  });
+
+  // Fecha o menu ao clicar em um link
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuToggle.classList.remove("active");
+      const icon = menuToggle.querySelector("i");
+      icon.classList.add("fa-bars");
+      icon.classList.remove("fa-xmark");
+    });
+  });
+});
